@@ -1,4 +1,4 @@
-modin[all]
 pandas
 ccxt
 numpy
+matplotlib
