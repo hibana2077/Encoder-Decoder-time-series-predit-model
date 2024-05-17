@@ -2,7 +2,7 @@
  * @Author: hibana2077 hibana2077@gmail.com
  * @Date: 2024-05-16 22:56:10
  * @LastEditors: hibana2077 hibana2077@gmail.com
- * @LastEditTime: 2024-05-17 11:36:54
+ * @LastEditTime: 2024-05-17 11:52:21
  * @FilePath: \Encoder-Decoder-time-series-predit-model\README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -12,7 +12,12 @@
     <img src="https://skillicons.dev/icons?i=pytorch,py,docker" /><br>
 </p>
 
-## Introduction
+## Table of Contents
+
+- [Abstract](#abstract)
+- [Results](#results)
+- [Conclusion](#conclusion)
+- [Run](#run)
 
 ## Abstract
 
@@ -38,4 +43,52 @@ Our experimental results demonstrate that this model significantly improves the 
 
 ## Results
 
+The proposed model was evaluated on a dataset of stock prices, and the performance was measured using accuracy and loss metrics. The architecture of the model is as follows:
+
+```
+TimeSeriesPredictor(
+  (encoder): TimeSeriesEncoder(
+    (lstm1): LSTM(5, 64)
+    (conv1): Conv1d(64, 32, kernel_size=(1,), stride=(1,))
+    (lstm2): LSTM(32, 4)
+  )
+  (predictor): Linear(in_features=4, out_features=3, bias=True)
+)
+```
+
+The accuracy and loss metrics were recorded over multiple epochs, with the accuracy reaching a maximum of 0.52 and the loss decreasing to a minimum of 0.70026. The loss function used in the training was cross-entropy. The accuracy and loss trends over the training epochs are illustrated in the figures below.
+
+![Accuracy](./img/acc.png)
+*Figure 1: Accuracy over epochs*
+
+![Loss](./img/loss.png)
+*Figure 2: Loss over epochs*
+
+The accuracy plot (Figure 1) shows a steady increase in performance, peaking at 0.52. The loss plot (Figure 2) indicates a significant reduction in the initial epochs, stabilizing around 0.70026. These results demonstrate the effectiveness of the LSTM autoencoder in capturing temporal dependencies in stock price data, and the subsequent classifier layers improve the overall prediction performance.
+
+## Conclusion
+
+Although the results achieved in this study were not ideal, our findings suggest that the approach of using transfer learning with an LSTM-based autoencoder model has significant potential for improvement in stock price movement prediction. The architecture, which initially trains an autoencoder to capture the temporal dependencies in stock price data and subsequently fine-tunes the model with additional classifier layers, demonstrates a promising direction. Future work can explore optimizing the model parameters, incorporating more sophisticated attention mechanisms, and leveraging larger and more diverse datasets to enhance prediction accuracy and robustness. This study highlights the viability of transfer learning and the LSTM autoencoder framework as a foundation for further advancements in financial time series analysis.
+
 ## Run
+
+To run the code, follow these steps:
+
+1. Clone the repository:
+
+```bash
+git clone
+```
+
+2. Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+3. train the model in jupyter notebook
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
