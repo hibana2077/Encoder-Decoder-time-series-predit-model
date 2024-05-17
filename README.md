@@ -56,7 +56,7 @@ TimeSeriesPredictor(
 )
 ```
 
-The accuracy and loss metrics were recorded over multiple epochs, with the accuracy reaching a maximum of 0.52 and the loss decreasing to a minimum of 0.70026. The loss function used in the training was cross-entropy. The accuracy and loss trends over the training epochs are illustrated in the figures below.
+The accuracy and loss metrics were recorded over multiple epochs, with the accuracy reaching a maximum of 0.5193 and the loss decreasing to a minimum of 0.70026. The loss function used in the training was cross-entropy. The accuracy and loss trends over the training epochs are illustrated in the figures below.
 
 ![Accuracy](./img/acc.png)
 *Figure 1: Accuracy over epochs*
